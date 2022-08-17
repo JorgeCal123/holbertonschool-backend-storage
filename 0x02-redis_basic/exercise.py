@@ -6,15 +6,21 @@ import redis
 
 
 class Cache:
-
+    """ Task 0
+    class Cache
+    """
     
     def __init__(self):
+        """ Task 0
+        method constructor"""
+
         self._redis = redis.Redis()
         self._redis.flushdb()
 
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
-        """Stores the data in redis"""
+        """ Task 0
+        method store"""
         key = str(uuid4())
         self._redis.set(key, data)
         return r_key
