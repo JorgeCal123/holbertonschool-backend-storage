@@ -3,6 +3,7 @@
 from uuid import uuid4
 from typing import Union
 import redis
+from functools import wraps
 
 
 def count_calls(method: Callable) -> Callable:
@@ -29,6 +30,7 @@ class Cache:
 
         self._redis = redis.Redis()
         self._redis.flushdb()
+
 
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
